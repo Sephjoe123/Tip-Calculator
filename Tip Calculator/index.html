@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/153c373bd9.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    
+    <section>
+       
+        <div class="container">
+            <section>
+                
+            </section>
+
+            
+            <div id = "header"> 
+                <h1>
+                    Tip Calculator
+                </h1>
+            </div>
+            <div id = "form">
+              
+                <div class="error-container">
+
+                </div>
+    
+                <p>
+                    How Much Was Your Bill ?
+                </p>
+                  <div class = "input-area">
+
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    <input type="number" id ="bill" name="username" minlength="0" maxlength="10" step = ".01">
+
+                    
+                </div>
+                <p>
+                    How Many People Sharing The Bill ?
+                </p>
+                 
+                <div class="input-area2">
+                  <i class="fa-solid fa-user"></i>  
+                  <input type="number" id ="share" name="username" maxlength="10">
+
+                  </div>
+                <p>
+                    How Was Your Service ?
+                </p>
+                
+                 </div>
+                    <select name="choose" id="select">
+                        <option id = "choose" value="">Choose...</option>
+                        <option id = "great" value="20">Great - 20%</option>
+                        <option id = "good" value="10">Good - 10%</option>
+                        <option id = "bad" value="2">Bad - 2%</option>
+                    </select> 
+                 
+                <button id = "calcBtn">
+                    Calculate
+                </button>
+
+                <div id = "result-container">
+                    </div>
+
+
+            </div>
+            
+           
+            
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
