@@ -9,62 +9,66 @@ let results = document.getElementById("result-container")
 let errorContainer = document.getElementsByClassName("error-container")[0];
 
 calcBtn.addEventListener("click",showResult);
-calcBtn.addEventListener("click",errorCheck);
+// calcBtn.addEventListener("click",errorCheck);
  
 
 function showResult (){
 
-    setTimeout(function(){
-        results.style.display = "none"
-        },10000);
+//  resultTimeout =   setTimeout(function(){
+//         results.style.display = "none"
+//         },3000);
 
-    if(billInput.value !== "" && shareInput.value !== "" && select.value !== ""){
-        return results.innerHTML = `<h3> Tip Amount   $ ${( +billInput.value / 100) * select.value } 
-        <h3> Total Amount   $   ${( +billInput.value / 100) * select.value + +billInput.value} 
-        <h3> Each Person Owes   $  ${( +billInput.value / 100) * select.value + +billInput.value / shareInput.value}
+//         // clearTimeout(resultTimeout);
+        // billInput.value !== "" && shareInput.value !== "" && select.value !== ""
+
+    if(billInput.value == "" && shareInput.value == "" && select.value == "" ){
+        errorContainer.style.backgroundColor = "#ffc2c2"
+        errorContainer.innerHTML = ` <br> Bill Amount Cannot Be Blank
+         <br><br>
+        Numbers Of Users Must Be Greater Than Zero
+        <br><br>
+        You Must Select a Service
+        <br><br>
         `
-    }
- else{
-    return results.innerHTML = ""
 
- }
- 
+        results.innerHTML = "";
 }
-   function errorCheck(){
-
-   if(billInput.value == "" && shareInput.value == "" && select.value == "" ){
-            errorContainer.style.backgroundColor = "#ffc2c2"
-            errorContainer.innerHTML = ` <br> Bill Amount Cannot Be Blank
-             <br><br>
-            Numbers Of Users Must Be Greater Than Zero
-            <br><br>
-            You Must Select a Service
-            <br><br>
-            `
-   }
 
 else if(billInput.value !== "" && shareInput.value == "" && select.value == "" ){
-    errorContainer.style.backgroundColor = "#ffc2c2"
-    errorContainer.innerHTML = ` <br>
-    Numbers Of Users Must Be Greater Than Zero
-    <br><br>
-    You Must Select a Service
-    <br><br>
-    `
+errorContainer.style.backgroundColor = "#ffc2c2"
+errorContainer.innerHTML = ` <br>
+Numbers Of Users Must Be Greater Than Zero
+<br><br>
+You Must Select a Service
+<br><br>
+`
+results.innerHTML = "";
 }
 else if(billInput.value !== "" && shareInput.value !== "" && select.value == "" ){
-    errorContainer.style.backgroundColor = "#ffc2c2"
-    errorContainer.innerHTML = ` <br>
-    You Must Select a Service
-    <br><br>
-    `
+errorContainer.style.backgroundColor = "#ffc2c2"
+errorContainer.innerHTML = ` <br>
+You Must Select a Service
+<br><br>
+`
+
+results.innerHTML = "";
+}
+else if (billInput.value == "" && shareInput.value !== "" && select.value !== "" ){
+errorContainer.style.backgroundColor = "#ffc2c2"
+errorContainer.innerHTML = ` <br>
+Bill Amount Cannot Be Blank
+<br><br>
+`
+results.innerHTML = "";
 }
 else{
-    return errorContainer.innerHTML = "";
+ return results.innerHTML = `<h3> Tip Amount   $ ${( +billInput.value / 100) * select.value } 
+<h3> Total Amount   $   ${( +billInput.value / 100) * select.value + +billInput.value} 
+<h3> Each Person Owes   $  ${( +billInput.value / 100) * select.value + +billInput.value / shareInput.value}
+`
 }
 
-setTimeout(function(){
-    errorContainer.style.display = "none"
-    },10000);
-  
-   }
+
+// clearTimeout(errorTimeout,5000)
+
+}
