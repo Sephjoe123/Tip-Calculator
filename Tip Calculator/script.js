@@ -7,17 +7,13 @@ let goodPercentage = document.getElementById("good");
 let badPercentage = document.getElementById("bad");
 let results = document.getElementById("result-container")
 let errorContainer = document.getElementsByClassName("error-container")[0];
-let addGif = document.getElementsByClassName("result-text")[0];
-
-
 
 
 calcBtn.addEventListener("click",checkForErrors);
 calcBtn.addEventListener("click",computeResult);
 
-function checkForErrors (){   
-
-    results.innerHTML = "";
+function checkForErrors (){
+    results.innerHTML = ""
     errorContainer.style.backgroundColor = "#ffc2c2";
     errorContainer.style.transition = 
     errorContainer.innerHTML = "";
@@ -60,7 +56,7 @@ function checkForErrors (){
           `
         }
 
-
+      
      else if (shareInput.value !== "" && billInput.value === "" &&
   select.value === ""){
   errorContainer.innerHTML = `<br> Bill Amount Cannot Be Blank
@@ -96,28 +92,26 @@ function checkForErrors (){
 
 }
 
+function computeResult (){  
+  setTimeout(function(){
 
-function computeResult (){
-
- 
-  results.style.textAlign = "center";
+  })
   
-  if (shareInput.value !== "" && billInput.value !== "" && select.value !== "" ){
-  return results.innerHTML =
-   `<h3> Tip Amount   $ ${(Math.round(+billInput.value / 100)) * select.value } 
-  <h3> Total Amount   $   ${(Math.round(+billInput.value / 100)) * select.value + +billInput.value} 
-  <h3> Each Person Owes   $  ${(Math.round(+billInput.value / 100)) * select.value + +billInput.value / shareInput.value}
-  `
-  }
-
-
-
+  results.style.textAlign = "center";
+  setTimeout(function(){
+   
+    if (shareInput.value !== "" && billInput.value !== "" && select.value !== "" ){
+      return results.innerHTML =
+       `<h3> Tip Amount   $ ${(Math.round(+billInput.value / 100)) * select.value } 
+      <h3> Total Amount   $   ${(Math.round(+billInput.value / 100)) * select.value + +billInput.value} 
+      <h3> Each Person Owes   $  ${(Math.round(+billInput.value / 100)) * select.value + +billInput.value / shareInput.value}
+      `
+      } 
  
+  },2000)
 
 }
 
-
-// let roundResult = computeResult();
-// let roundedValue = Math.round(roundResult * 100) / 100;
-
+let roundResult = computeResult();
+let roundedValue = Math.round(roundResult * 100) / 100;
 
